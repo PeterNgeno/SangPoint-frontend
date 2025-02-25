@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Betting Predictions</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 20px;
+    }
+    #paymentSection {
+      margin-top: 20px;
+    }
+    button {
+      background-color: green;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: darkgreen;
+    }
+  </style>
+</head>
+<body>
+  <h1>Betting Predictions</h1>
+  <div id="paymentSection">
+    <label for="phoneNumber">Enter your Phone Number:</label>
+    <input type="text" id="phoneNumber" placeholder="+2547XXXXXXXX">
+    <button onclick="makePayment()">Pay Ksh 20 to View Predictions</button>
+  </div>
+
+  <script>
+    function makePayment() {
+      const phoneNumber = document.getElementById("phoneNumber").value;
+      if (phoneNumber) {
+        alert("Processing payment for " + phoneNumber);
+        // Add your payment logic here, e.g., STK push integration
+      } else {
+        alert("Please enter your phone number.");
+      }
+    }
+  </script>
+</body>
+</html>
