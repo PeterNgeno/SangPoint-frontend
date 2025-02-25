@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin - Betting Predictions</title>
+  <style>
+    /* Simplified table styling */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      background-color: #f9f9f9;
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 10px;
+      text-align: center;
+    }
+    th {
+      background-color: #4CAF50;
+      color: white;
+    }
+    tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Admin - Update Betting Predictions</h1>
+  </header>
+  <form action="/admin/betting" method="POST">
+    <h3>Enter Betting Predictions</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Prediction 1</th>
+          <th>Prediction 2</th>
+          <th>Prediction 3</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Simplified form rows -->
+        ${[...Array(20)].map((_, i) => `
+          <tr>
+            <td><input type="text" name="predictions[${i}][p1]" placeholder="Prediction ${i * 3 + 1}" required></td>
+            <td><input type="text" name="predictions[${i}][p2]" placeholder="Prediction ${i * 3 + 2}" required></td>
+            <td><input type="text" name="predictions[${i}][p3]" placeholder="Prediction ${i * 3 + 3}" required></td>
+          </tr>
+        `).join('')}
+      </tbody>
+    </table>
+    <button type="submit">Save Betting Predictions</button>
+  </form>
+</body>
+</html>
