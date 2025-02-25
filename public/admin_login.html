@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Login</title>
+  <link rel="stylesheet" href="style.css"> <!-- Link to the CSS file -->
+</head>
+<body>
+  <div class="login-container">
+    <h1>Admin Login</h1>
+    <form id="adminLoginForm">
+      <div class="form-group">
+        <label for="adminFirstName">First Name:</label>
+        <input type="text" id="adminFirstName" name="firstName" placeholder="Enter your first name" required>
+      </div>
+      <div class="form-group">
+        <label for="adminLastName">Last Name:</label>
+        <input type="text" id="adminLastName" name="lastName" placeholder="Enter your last name" required>
+      </div>
+      <div class="form-group">
+        <label for="adminEmail">Email:</label>
+        <input type="email" id="adminEmail" name="email" placeholder="Enter your email" required>
+      </div>
+      <div class="form-group">
+        <label for="adminPassword">Password:</label>
+        <input type="password" id="adminPassword" name="password" placeholder="Enter your password" required>
+      </div>
+      <button type="submit" class="button">Login</button>
+    </form>
+    <p id="errorMessage" class="error-message" style="color: red;"></p>
+  </div>
+
+  <script>
+    document.getElementById('adminLoginForm').addEventListener('submit', async (event) => {
+      event.preventDefault();
+
+      // Collect form data
+      const firstName = document.getElementById('adminFirstName').value.trim();
+      const lastName = document.getElementById('adminLastName').value.trim();
+      const email = document.getElementById('adminEmail').value.trim();
+      const password = document.getElementById('adminPassword').value.trim();
+
+      // Verify if credentials match the required admin details
+      if (
+        firstName === 'Peter' &&
+        lastName === 'Ngeno' &&
+        email === 'perontips@gmail.com' &&
+        password === 'Kipzz1945.#'
+      ) {
+        // Redirect to admin panel
+        window.location.href = 'admin_dashboard.html'; // Update with your admin panel file
+      } else {
+        // Display error message
+        document.getElementById('errorMessage').textContent = 'Invalid credentials';
+      }
+    });
+  </script>
+</body>
+</html>
